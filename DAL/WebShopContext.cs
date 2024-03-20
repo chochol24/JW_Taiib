@@ -17,5 +17,13 @@ namespace DAL
             optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=JW_Taiib;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         }
         
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Product>().HasMany(x => x.BasketPositions).WithOne(x => x.Product).OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<Product>().HasMany(x => x.OrderPositions).WithOne(x => x.Product).OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<Order>().HasMany(x => x.Positions).WithOne(x => x.Order).OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<Order>().HasOne(x => x.User).WithMany(x => x.Orders).OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<User>().HasMany(x => x.BasketPositions).WithOne(x => x.User).OnDelete(DeleteBehavior.Cascade);
+        }
     }
 }

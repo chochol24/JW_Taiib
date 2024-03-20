@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Student\\Desktop\\Wozniak\\JW_Taiib\\Model\\BibliotekaModel.csproj": {}
+    "D:\\jw\\JW_Taiib\\Model\\BibliotekaModel.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Student\\Desktop\\Wozniak\\JW_Taiib\\Model\\BibliotekaModel.csproj": {
+    "D:\\jw\\JW_Taiib\\Model\\BibliotekaModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Student\\Desktop\\Wozniak\\JW_Taiib\\Model\\BibliotekaModel.csproj",
+        "projectUniqueName": "D:\\jw\\JW_Taiib\\Model\\BibliotekaModel.csproj",
         "projectName": "BibliotekaModel",
-        "projectPath": "C:\\Users\\Student\\Desktop\\Wozniak\\JW_Taiib\\Model\\BibliotekaModel.csproj",
+        "projectPath": "D:\\jw\\JW_Taiib\\Model\\BibliotekaModel.csproj",
         "packagesPath": "C:\\Users\\Student\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Student\\Desktop\\Wozniak\\JW_Taiib\\Model\\obj\\",
+        "outputPath": "D:\\jw\\JW_Taiib\\Model\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

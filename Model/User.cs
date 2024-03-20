@@ -14,7 +14,7 @@ namespace Model
     {
         Admin, Casual
     }
-    public class User : IEntityTypeConfiguration<User>
+    public class User 
     {
         [Key]
         public int ID { get; set; }
@@ -29,16 +29,6 @@ namespace Model
         public IEnumerable<Order> Orders { get; set; }
         public IEnumerable<BasketPosition> BasketPositions { get; set; }
 
-        public void Configure(EntityTypeBuilder<User> builder)
-        {
-            builder
-                .HasMany(o => o.Orders)
-                .WithOne(o => o.User)
-                .OnDelete(DeleteBehavior.Cascade);
-            builder
-                .HasMany(o => o.BasketPositions)
-                .WithOne(o => o.User)
-                .OnDelete(DeleteBehavior.Cascade);
-        }
+        
     }
 }

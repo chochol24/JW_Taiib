@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class BasketPosition : IEntityTypeConfiguration<BasketPosition>
+    public class BasketPosition 
     {
         [Key]
         public int ID { get; set; }
@@ -25,20 +25,6 @@ namespace Model
         public User User { get; set; }
 
         public int Amount { get; set; }
-
         
-        
-
-        public void Configure(EntityTypeBuilder<BasketPosition> builder)
-        {
-            builder
-                .HasOne(u => u.User)
-                .WithMany(u => u.BasketPositions)
-                .OnDelete(DeleteBehavior.Restrict);
-            builder
-                .HasOne(u => u.Product)
-                .WithMany(u => u.BasketPositions)
-                .OnDelete(DeleteBehavior.Restrict);
-        }
     }
 }

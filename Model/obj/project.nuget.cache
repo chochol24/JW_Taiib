@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fydHQ/ZnN0fW2lZ1BYXCwfbd4Lp57KGO8Soq8epShiZzR+FgQh/z9fqUXswe5rns2VMEQonSgLhB7tdfKjrOYA==",
+  "dgSpecHash": "XkrSRtGUZkZciCfwBWoHU1NlIWXJV4PCt7mhU4pxsbK51xPUg1VJhVSY93OdPq/4LtQjqgmMG4USYV0g01EHow==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Student\\Desktop\\Wozniak\\JW_Taiib\\Model\\BibliotekaModel.csproj",
+  "projectFilePath": "D:\\jw\\JW_Taiib\\Model\\BibliotekaModel.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Student\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Student\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Order : IEntityTypeConfiguration<Order>
+    public class Order 
     {
         [Key]
         public int ID { get; set; }
@@ -23,17 +23,6 @@ namespace Model
         public IEnumerable<OrderPosition> Positions { get; set; }
         
 
-        public void Configure(EntityTypeBuilder<Order> builder)
-        {
-            builder
-                .HasMany(x => x.Positions)
-                .WithOne(x => x.Order)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            builder
-                .HasOne(x => x.User)
-                .WithMany(x => x.Orders)
-                .OnDelete(DeleteBehavior.Restrict);
-        }
+        
     }
 }

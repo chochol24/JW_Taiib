@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Product : IEntityTypeConfiguration<Product>
+    public class Product
     {
         [Key]
         public int ID { get; set; }
@@ -20,13 +20,6 @@ namespace Model
         public bool IsActive { get; set; }
 
         public IEnumerable<BasketPosition> BasketPositions { get; set; }
-
-        public void Configure(EntityTypeBuilder<Product> builder)
-        {
-            builder
-                .HasMany(u => u.BasketPositions)
-                .WithOne(u => u.Product)
-                .OnDelete(DeleteBehavior.Cascade);
-        }
+        public IEnumerable<OrderPosition> OrderPositions { get; set; }
     }
 }

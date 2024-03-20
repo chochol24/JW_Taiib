@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class OrderPosition : IEntityTypeConfiguration<OrderPosition>
+    public class OrderPosition
     {
         [Key]
         public int ID { get; set; }
@@ -20,15 +20,10 @@ namespace Model
         public int OrderID { get; set; }
         public int Amount { get; set; }
         public double Price { get; set; }
+        public int ProductID { get; set; }
+        [ForeignKey(nameof(ProductID))]
+        public Product Product { get; set; }
 
-        
 
-        public void Configure(EntityTypeBuilder<OrderPosition> builder)
-        {
-            builder
-                .HasOne(o => o.Order)
-                .WithMany(o => o.Positions)
-                .OnDelete(DeleteBehavior.SetNull);
-        }
     }
 }
