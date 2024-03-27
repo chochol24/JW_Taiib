@@ -11,7 +11,7 @@ namespace BLL.DTO
 {
     public class BasketPositionDTORequest
     {
-        public int ID { get; set; }
+        
         public Product Product { get; set; }
         public int ProductID { get; set; }
         public int UserID { get; set; }

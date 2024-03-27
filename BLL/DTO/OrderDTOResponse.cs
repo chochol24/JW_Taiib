@@ -14,7 +14,7 @@ namespace BLL.DTO
         public int UserID { get; set; }
         public User User { get; set; }
         public DateTime Date { get; set; }
-        public IEnumerable<OrderPosition> Positions { get; set; }
+        public IEnumerable<OrderPositionDTOResponse> Positions { get; set; }
 
 
     }

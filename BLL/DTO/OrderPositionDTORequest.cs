@@ -10,7 +10,6 @@ namespace BLL.DTO
 {
     public class OrderPositionDTORequest
     {
-        public int ID { get; set; }
         public Order Order { get; set; }
         public int OrderID { get; set; }
         public int Amount { get; set; }
