@@ -3,12 +3,6 @@ using BLL.Interfaces;
 using DAL;
 using Microsoft.EntityFrameworkCore;
 using Model;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BLL_EF
 {
@@ -20,38 +14,58 @@ namespace BLL_EF
         {
             this.db = db;
         }
-        public void AddOrder(OrderDTORequest order)
-        {
-            db.Orders.Add(new Order()
-            {
-                User = order.User,
-                UserID = order.UserID,
-                Date = order.Date,
-                Positions = (IEnumerable<OrderPosition>)order.Positions
-            });
-            
-        }
 
         public IEnumerable<OrderDTOResponse> getAllOrders()
         {
-            var users = db.Users.Include(u=>u.Orders).ThenInclude(o=>o.Positions).ToList();
-            var orders = users.SelectMany(u=>u.Orders).ToList();
-            return (IEnumerable<OrderDTOResponse>)orders;
+            var orders = db.Orders.ToList();
+            return orders.Select(o=>ToOrderResponseDTO(o));
         }
 
-        public IEnumerable<OrderPositionDTOResponse> getOrderPosition(OrderDTOResponse order)
+        public IEnumerable<OrderDTOResponse> getOrders(int userId)
         {
-            var or = db.Orders.Where(o=>o.ID==order.ID);
-            var pos = or.SelectMany(o=>o.Positions).ToList();
-            return (IEnumerable<OrderPositionDTOResponse>)pos;
+            var u = db.Users.Find(userId);
+            if (u == null)
+                throw new Exception($"Brak usera o id {userId}");
+            var orders = db.Orders.Where(u=>u.UserID==userId).ToList();
+            return orders.Select(o=>ToOrderResponseDTO(o));
         }
 
-        public IEnumerable<OrderDTOResponse> getOrders(UserDTOResponse user)
+        public IEnumerable<OrderPositionDTOResponse> getOrderPosition(int orderId)
         {
-            var u = db.Users.FirstOrDefault(x => x.ID == user.ID);
-            var orders = u.Orders;
-            return (IEnumerable<OrderDTOResponse>)orders;
+            var or = db.Orders.Find(orderId);
+            if (or == null)
+                throw new Exception($"Brak zamowienia o id {orderId}");
+            var pos = db.OrderPositions.Where(o=>o.OrderID==orderId).ToList();
+
+            return ToOrderPositionsDTOResponse(pos);
         }
 
+        
+        OrderDTOResponse ToOrderResponseDTO(Order order)
+        {
+            return new OrderDTOResponse
+            {
+                ID = order.ID,
+                UserID = order.UserID,
+                Date = order.Date,
+            };
+        }
+
+        IEnumerable<OrderPositionDTOResponse> ToOrderPositionsDTOResponse(List<OrderPosition> orderPositions)
+        {
+            List<OrderPositionDTOResponse> pos = new List<OrderPositionDTOResponse>();
+            foreach (var orderPosition in orderPositions)
+            {
+                pos.Add(new OrderPositionDTOResponse
+                {
+                    ID = orderPosition.ID,
+                    ProductID = orderPosition.ProductID,
+                    Amount = orderPosition.Amount,
+                    Price = orderPosition.Price,
+                    OrderID = orderPosition.OrderID,
+                });
+            }
+            return pos;
+        }
     }
 }

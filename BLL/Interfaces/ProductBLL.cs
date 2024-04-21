@@ -9,16 +9,9 @@ namespace BLL.Interfaces
 {
     public interface ProductBLL
     {
-        public IEnumerable<ProductDTOResponse> GetProducts();
-        public IEnumerable<ProductDTOResponse> GetProductsPage(int size, int count);
-        public IEnumerable<ProductDTOResponse> GetProductsByName(string name);
-        public IEnumerable<ProductDTOResponse> GetProductsIsActive(bool isActive);
-        public IEnumerable<ProductDTOResponse> GetProductsSorted(string columnName, bool sort);
-
+        public IEnumerable<ProductDTOResponse> GetProducts(PaginationDTO pagination, string nameFilter, bool? isActiveFilter, string sortBy, bool sortAscending);
         public void AddProduct(ProductDTORequest product);
-        public void AddProduct(string name, double price, string image, bool isActive);
-
-        public void Updateproduct(int id, string name,double price, string image, bool isActive);
+        public void Updateproduct(int id, ProductDTORequest product);
         public void DeleteProduct(int id);
         public void ActiveProduct(int id);
 

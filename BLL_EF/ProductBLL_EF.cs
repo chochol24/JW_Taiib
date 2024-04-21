@@ -5,6 +5,7 @@ using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,17 +22,17 @@ namespace BLL_EF
 
         public void ActiveProduct(int id)
         {
-            var product = db.Products.FirstOrDefault(p=>p.ID== id);
-            if(product.IsActive==false)
+            Product product = FindProduct(id);
+            if (product.IsActive == false) 
                 product.IsActive = true;
-           
+            db.SaveChanges();
         }
 
         public void AddProduct(ProductDTORequest product)
         {
-            if(product.Price>0)
+            if(product.Price > 0)
             {
-                db.Products.Add(new Model.Product()
+                db.Products.Add(new Product()
                 {
                     Price = product.Price,
                     Name = product.Name,
@@ -42,55 +43,85 @@ namespace BLL_EF
             db.SaveChanges();
         }
 
-        public void AddProduct(string name, double price, string image, bool isActive)
+
+        public void Updateproduct(int id, ProductDTORequest productRequest)
         {
-            if (price > 0)
-            {
-                db.Products.Add(new Model.Product()
-                {
-                    Price = price,
-                    Name = name,
-                    Image = image,
-                    IsActive = isActive
-                });
+            Product product = FindProduct(id);
+            if(product.Price>0)
+            { 
+                product.Price = productRequest.Price;
+                product.Name = productRequest.Name;
+                product.Image = productRequest.Image;
+                product.IsActive = productRequest.IsActive;
+                db.SaveChanges();
             }
-            db.SaveChanges();
         }
 
         public void DeleteProduct(int id)
         {
-            throw new NotImplementedException();
+            Product product = FindProduct(id);
+            if(product == null)
+            {
+                throw new Exception($"Brak produktu o tym id");
+            }
+
+
+            if (db.BasketPositions.FirstOrDefault(o => o.ProductID == id) != null);
+            else if (db.OrderPositions.FirstOrDefault(o => o.ProductID == id) != null)
+                    product.IsActive = false;
+            else
+                db.Products.Remove(product);
+
+            db.SaveChanges();
         }
 
-        public IEnumerable<ProductDTOResponse> GetProducts()
+        public IEnumerable<ProductDTOResponse> GetProducts(PaginationDTO pagination, string? nameFilter, bool? isActiveFilter, string? sortBy, bool sortAscending)
         {
+            int count = pagination?.Count ?? 10;
+            int page = pagination?.Page ?? 0; 
 
-            throw new NotImplementedException();
+            IEnumerable<Product> products = db.Products.ToList();
+
+            if (!string.IsNullOrEmpty(nameFilter))
+                products = products.Where(p => p.Name.Contains(nameFilter));
+
+            if (isActiveFilter.HasValue)
+                products = products.Where(p => p.IsActive == isActiveFilter.Value);
+
+            if(!string.IsNullOrEmpty(sortBy))
+            {
+                switch(sortBy)
+                {
+                    case "Name":
+                        products = sortAscending ? products.OrderBy(p=>p.Name) : products.OrderByDescending(p=>p.Name); break;
+                    case "Price":
+                        products = sortAscending ? products.OrderBy(p => p.Price) : products.OrderByDescending(p => p.Price); break;
+                    default:
+                        products = products.OrderBy(p => p.ID); break;
+                }
+            }
+            return products.Skip(count * page).Take(count).Select(x => ToProductResponseDTO(x));
         }
 
-        public IEnumerable<ProductDTOResponse> GetProductsByName(string name)
+        Product FindProduct(int id)
         {
-            throw new NotImplementedException();
+            Product product = db.Products.Find(id);
+            if (product == null)
+                throw new Exception($"Nie znaleziono produktu o id {id}");
+            return product;
         }
 
-        public IEnumerable<ProductDTOResponse> GetProductsIsActive(bool isActive)
+        ProductDTOResponse ToProductResponseDTO(Product product)
         {
-            throw new NotImplementedException();
+            return new ProductDTOResponse
+            {
+                ID = product.ID,
+                Name = product.Name,
+                Price = product.Price,
+                Image = product.Image,
+                IsActive = product.IsActive
+            };
         }
 
-        public IEnumerable<ProductDTOResponse> GetProductsPage(int size, int count)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<ProductDTOResponse> GetProductsSorted(string columnName, bool sort)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Updateproduct(int id, string name, double price, string image, bool isActive)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

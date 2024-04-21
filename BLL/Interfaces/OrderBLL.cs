@@ -9,9 +9,8 @@ namespace BLL.Interfaces
 {
     public interface OrderBLL
     {
-        public void AddOrder(OrderDTORequest order);
         public IEnumerable<OrderDTOResponse> getAllOrders();
-        public IEnumerable<OrderDTOResponse> getOrders(UserDTOResponse user);
-        public IEnumerable<OrderPositionDTOResponse> getOrderPosition(OrderDTOResponse order);
+        public IEnumerable<OrderDTOResponse> getOrders(int id);
+        public IEnumerable<OrderPositionDTOResponse> getOrderPosition(int id);
     }
 }

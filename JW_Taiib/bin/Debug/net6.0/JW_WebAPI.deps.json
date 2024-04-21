@@ -8,6 +8,9 @@
     ".NETCoreApp,Version=v6.0": {
       "JW_WebAPI/1.0.0": {
         "dependencies": {
+          "BLL": "1.0.0",
+          "BLL_EF": "1.0.0",
+          "BibliotekaModel": "1.0.0",
           "DAL": "1.0.0",
           "Microsoft.EntityFrameworkCore": "7.0.17",
           "Microsoft.EntityFrameworkCore.Design": "7.0.17",
@@ -711,6 +714,25 @@
           "BibliotekaModel.dll": {}
         }
       },
+      "BLL/1.0.0": {
+        "dependencies": {
+          "BibliotekaModel": "1.0.0"
+        },
+        "runtime": {
+          "BLL.dll": {}
+        }
+      },
+      "BLL_EF/1.0.0": {
+        "dependencies": {
+          "BLL": "1.0.0",
+          "DAL": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "7.0.17",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.17"
+        },
+        "runtime": {
+          "BLL_EF.dll": {}
+        }
+      },
       "DAL/1.0.0": {
         "dependencies": {
           "BibliotekaModel": "1.0.0",
@@ -1199,6 +1221,16 @@
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
     },
     "BibliotekaModel/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BLL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BLL_EF/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

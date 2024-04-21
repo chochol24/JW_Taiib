@@ -16,7 +16,5 @@ namespace BLL.DTO
         public bool IsActive { get; set; }
         public Model.Type Type { get; set; }
 
-        public IEnumerable<OrderDTOResponse> Orders { get; set; }
-        public IEnumerable<BasketPositionDTOResponse> BasketPositions { get; set; }
     }
 }

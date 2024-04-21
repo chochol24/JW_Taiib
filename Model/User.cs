@@ -26,8 +26,8 @@ namespace Model
 
         public Type Type { get; set; }
 
-        public IEnumerable<Order> Orders { get; set; }
-        public IEnumerable<BasketPosition> BasketPositions { get; set; }
+        public IEnumerable<Order>? Orders { get; set; }
+        public IEnumerable<BasketPosition>? BasketPositions { get; set; }
 
         
     }

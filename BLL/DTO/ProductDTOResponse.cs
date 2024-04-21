@@ -14,8 +14,6 @@ namespace BLL.DTO
         public string Name { get; set; }
         public double Price { get; set; }
         public string Image { get; set; }
-        public string IsActive { get; set; }
-        public IEnumerable<BasketPositionDTOResponse> BasketPositions { get; set; }
-        public IEnumerable<OrderPositionDTOResponse> OrderPositions { get; set; }
+        public bool IsActive { get; set; }
     }
 }
