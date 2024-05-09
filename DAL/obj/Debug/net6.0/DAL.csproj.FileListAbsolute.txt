@@ -26,7 +26,6 @@ D:\jw\JW_Taiib\DAL\obj\Debug\net6.0\DAL.GeneratedMSBuildEditorConfig.editorconfi
 D:\jw\JW_Taiib\DAL\obj\Debug\net6.0\DAL.AssemblyInfoInputs.cache
 D:\jw\JW_Taiib\DAL\obj\Debug\net6.0\DAL.AssemblyInfo.cs
 D:\jw\JW_Taiib\DAL\obj\Debug\net6.0\DAL.csproj.CoreCompileInputs.cache
-D:\jw\JW_Taiib\DAL\obj\Debug\net6.0\DAL.csproj.CopyComplete
 D:\jw\JW_Taiib\DAL\obj\Debug\net6.0\DAL.dll
 D:\jw\JW_Taiib\DAL\obj\Debug\net6.0\refint\DAL.dll
 D:\jw\JW_Taiib\DAL\obj\Debug\net6.0\DAL.pdb
@@ -49,3 +48,5 @@ C:\Users\Kuba\Desktop\Taiib_zajecia\JW_Taiib\DAL\obj\Debug\net6.0\refint\DAL.dll
 C:\Users\Kuba\Desktop\Taiib_zajecia\JW_Taiib\DAL\obj\Debug\net6.0\DAL.pdb
 C:\Users\Kuba\Desktop\Taiib_zajecia\JW_Taiib\DAL\obj\Debug\net6.0\DAL.genruntimeconfig.cache
 C:\Users\Kuba\Desktop\Taiib_zajecia\JW_Taiib\DAL\obj\Debug\net6.0\ref\DAL.dll
+D:\jw\JW_Taiib\DAL\obj\Debug\net6.0\DAL.sourcelink.json
+D:\jw\JW_Taiib\DAL\obj\Debug\net6.0\DAL.csproj.Up2Date

@@ -176,7 +176,6 @@ D:\jw\JW_Taiib\JW_Taiib\obj\Debug\net6.0\staticwebassets.pack.json
 D:\jw\JW_Taiib\JW_Taiib\obj\Debug\net6.0\staticwebassets.build.json
 D:\jw\JW_Taiib\JW_Taiib\obj\Debug\net6.0\staticwebassets.development.json
 D:\jw\JW_Taiib\JW_Taiib\obj\Debug\net6.0\scopedcss\bundle\JW_WebAPI.styles.css
-D:\jw\JW_Taiib\JW_Taiib\obj\Debug\net6.0\JW_WebAPI.csproj.CopyComplete
 D:\jw\JW_Taiib\JW_Taiib\obj\Debug\net6.0\JW_WebAPI.dll
 D:\jw\JW_Taiib\JW_Taiib\obj\Debug\net6.0\refint\JW_WebAPI.dll
 D:\jw\JW_Taiib\JW_Taiib\obj\Debug\net6.0\JW_WebAPI.pdb
@@ -278,3 +277,9 @@ C:\Users\Kuba\Desktop\Taiib_zajecia\JW_Taiib\JW_Taiib\bin\Debug\net6.0\BLL.dll
 C:\Users\Kuba\Desktop\Taiib_zajecia\JW_Taiib\JW_Taiib\bin\Debug\net6.0\BLL_EF.dll
 C:\Users\Kuba\Desktop\Taiib_zajecia\JW_Taiib\JW_Taiib\bin\Debug\net6.0\BLL.pdb
 C:\Users\Kuba\Desktop\Taiib_zajecia\JW_Taiib\JW_Taiib\bin\Debug\net6.0\BLL_EF.pdb
+D:\jw\JW_Taiib\JW_Taiib\bin\Debug\net6.0\BLL.dll
+D:\jw\JW_Taiib\JW_Taiib\bin\Debug\net6.0\BLL_EF.dll
+D:\jw\JW_Taiib\JW_Taiib\bin\Debug\net6.0\BLL.pdb
+D:\jw\JW_Taiib\JW_Taiib\bin\Debug\net6.0\BLL_EF.pdb
+D:\jw\JW_Taiib\JW_Taiib\obj\Debug\net6.0\JW_WebAPI.sourcelink.json
+D:\jw\JW_Taiib\JW_Taiib\obj\Debug\net6.0\JW_WebAPI.csproj.Up2Date

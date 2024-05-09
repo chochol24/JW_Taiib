@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kuba\\Desktop\\Taiib_zajecia\\JW_Taiib\\Model\\BibliotekaModel.csproj": {}
+    "D:\\jw\\JW_Taiib\\Model\\BibliotekaModel.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kuba\\Desktop\\Taiib_zajecia\\JW_Taiib\\Model\\BibliotekaModel.csproj": {
+    "D:\\jw\\JW_Taiib\\Model\\BibliotekaModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kuba\\Desktop\\Taiib_zajecia\\JW_Taiib\\Model\\BibliotekaModel.csproj",
+        "projectUniqueName": "D:\\jw\\JW_Taiib\\Model\\BibliotekaModel.csproj",
         "projectName": "BibliotekaModel",
-        "projectPath": "C:\\Users\\Kuba\\Desktop\\Taiib_zajecia\\JW_Taiib\\Model\\BibliotekaModel.csproj",
-        "packagesPath": "C:\\Users\\Kuba\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kuba\\Desktop\\Taiib_zajecia\\JW_Taiib\\Model\\obj\\",
+        "projectPath": "D:\\jw\\JW_Taiib\\Model\\BibliotekaModel.csproj",
+        "packagesPath": "C:\\Users\\Student\\.nuget\\packages\\",
+        "outputPath": "D:\\jw\\JW_Taiib\\Model\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Kuba\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Student\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +27,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -38,6 +40,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -81,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     }
