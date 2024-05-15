@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ProductDTOResponse } from '../models/product.interface';
 import { ProductsService } from '../products.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -11,10 +12,11 @@ export class ProductsComponent {
   public data: ProductDTOResponse[] = [];
   public page: number = 0;
   public count: number = 10;
-  public name: string = "";
-  public sortBy: string = "Price";
+  public name: string = "drugi";
+  public sortBy: string = "";
   public isActive: boolean = true;
   public sortingAsc: boolean = false;
+
 
   constructor(private productsService: ProductsService){
     this.getData();
@@ -33,4 +35,5 @@ export class ProductsComponent {
   public onPaginationSubmit(): void{
     this.getData();
   }
+  
 }

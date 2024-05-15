@@ -1,1 +1,9 @@
 <p>orders works!</p>
+
+<div *ngFor="let p of data" class="grid-container" style="display:grid;">
+    <div class="grid-item" style="border: 1px solid black; background-color: darkkhaki; width: 100%;">
+        {{ p.date}}<br/>
+        {{p.iD}}<br/>
+        {{p.userID}}<br/>
+    </div>
+</div>
