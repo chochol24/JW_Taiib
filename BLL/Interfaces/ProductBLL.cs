@@ -9,6 +9,7 @@ namespace BLL.Interfaces
 {
     public interface ProductBLL
     {
+        public ProductDTOResponse GetProductById(int id);
         public IEnumerable<ProductDTOResponse> GetProducts(PaginationDTO pagination, string nameFilter, bool? isActiveFilter, string sortBy, bool sortAscending);
         public void AddProduct(ProductDTORequest product);
         public void Updateproduct(int id, ProductDTORequest product);

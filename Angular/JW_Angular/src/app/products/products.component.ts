@@ -12,18 +12,18 @@ export class ProductsComponent {
   public data: ProductDTOResponse[] = [];
   public page: number = 0;
   public count: number = 10;
-  public name: string = "drugi";
+  public name: string = "";
   public sortBy: string = "";
   public isActive: boolean = true;
   public sortingAsc: boolean = false;
 
 
-  constructor(private productsService: ProductsService){
+  constructor(private productsService: ProductsService, private router: Router) {
     this.getData();
   }
 
-  private getData(): void{
-    this.productsService.get({count: this.count, page: this.page}, this.name, this.isActive, this.sortBy, this.sortingAsc).subscribe({
+  private getData(): void {
+    this.productsService.get({ count: this.count, page: this.page }, this.name, this.isActive, this.sortBy, this.sortingAsc).subscribe({
       next: (res) => {
         this.data = res;
       },
@@ -32,8 +32,9 @@ export class ProductsComponent {
     });
   }
 
-  public onPaginationSubmit(): void{
+  public onPaginationSubmit(): void {
     this.getData();
   }
-  
+
 }
+

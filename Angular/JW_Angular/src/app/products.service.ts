@@ -25,4 +25,16 @@ export class ProductsService {
     }
     );
   }
+
+  public getProductById(id: number): Observable<ProductDTOResponse>{
+    return this.httpClient.get<ProductDTOResponse>(`https://localhost:7123/api/products/${id}`)
+  }
+
+  public delete(id: number): Observable<void>{
+    return this.httpClient.delete<void>(`https://localhost:7123/api/products/${id}`);
+  }
+
+  public changeActiveState(id: number): Observable<void>{
+    return this.httpClient.put<void>(`https://localhost:7123/api/products/Activate/${id}`, null);
+  }
 }

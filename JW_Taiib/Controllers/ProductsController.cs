@@ -15,6 +15,12 @@ namespace JW_WebAPI.Controllers
             _productBLL = productBLL;
         }
 
+        [HttpGet("{id}")]
+        public ProductDTOResponse GetProduct(int id)
+        {
+            return _productBLL.GetProductById(id);
+        }
+
         [HttpGet]
         public IEnumerable<ProductDTOResponse> Get([FromQuery] PaginationDTO pagination, string? nameFilter, bool? isActiveFilter, string? sortBy, bool sortAscending)
         {

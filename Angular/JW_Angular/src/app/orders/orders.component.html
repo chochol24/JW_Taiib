@@ -1,9 +1,17 @@
-<p>orders works!</p>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>OrderID</th>
+            <th>UserID</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let order of data" (click)="toPage(order.id)">
+            <td >{{order.date}}</td>
+            <td>{{order.id}}</td>
+            <td>{{order.userID}}</td>
+        </tr>
+    </tbody>
+</table>
 
-<div *ngFor="let p of data" class="grid-container" style="display:grid;">
-    <div class="grid-item" style="border: 1px solid black; background-color: darkkhaki; width: 100%;">
-        {{ p.date}}<br/>
-        {{p.iD}}<br/>
-        {{p.userID}}<br/>
-    </div>
-</div>

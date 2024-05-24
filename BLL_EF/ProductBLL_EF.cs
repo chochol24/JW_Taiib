@@ -25,6 +25,8 @@ namespace BLL_EF
             Product product = FindProduct(id);
             if (product.IsActive == false) 
                 product.IsActive = true;
+            else
+                product.IsActive = false;
             db.SaveChanges();
         }
 
@@ -73,6 +75,13 @@ namespace BLL_EF
                 db.Products.Remove(product);
 
             db.SaveChanges();
+        }
+
+        public ProductDTOResponse GetProductById(int id)
+        {
+            Product product = FindProduct(id);
+
+            return ToProductResponseDTO(product);
         }
 
         public IEnumerable<ProductDTOResponse> GetProducts(PaginationDTO pagination, string? nameFilter, bool? isActiveFilter, string? sortBy, bool sortAscending)

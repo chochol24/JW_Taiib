@@ -1,5 +1,5 @@
 export interface OrderDTOResponse {
-    iD: number;
+    id: number;
     userID: number;
     date: string;
 }
