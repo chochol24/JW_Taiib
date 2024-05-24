@@ -5,6 +5,8 @@
             <th>UserID</th>
             <th>ProductID</th>
             <th>Amount</th>
+            <th>Change amount</th>
+            <th>Remove</th>
         </tr>
     </thead>
     <tbody>
@@ -13,6 +15,16 @@
             <td>{{p.userID}}</td>
             <td>{{p.productID}}</td>
             <td>{{p.amount}}</td>
+            <td>
+                <input type="number" name="amount" id="amount" [(ngModel)]="p.amount" (change)="changeAmount(p.id, p.amount )">
+            </td>
+            <td>
+                <input type="button" name="remove" id="remove" value="Remove" (click)="remove(p.id)"/>
+            </td>
         </tr>
     </tbody>
 </table>
+
+<br/>
+<input type="button" name="order" id="order" value="Order" (click)="order(userId)"/>
+

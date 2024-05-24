@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ProductDTOResponse } from '../models/product.interface';
 import { ProductsService } from '../products.service';
 import { Router } from '@angular/router';
+import { BasketPositionsService } from '../basket-positions.service';
+import { BasketPositionDTORequest } from '../models/basket-position-request.interface';
 
 @Component({
   selector: 'app-products',
@@ -36,5 +38,28 @@ export class ProductsComponent {
     this.getData();
   }
 
+  public addNewProduct(): void{
+    this.router.navigate(['/products/add']);
+  }
+
+
+  private readonly apiBasket = inject(BasketPositionsService);
+
+  public basketRequest: BasketPositionDTORequest = {
+    userID: 2,
+    productID: 0,
+    amount: 1
+  };
+
+  public addToBasket(id: number): void{
+    this.basketRequest.productID = id;
+    console.log(this.basketRequest);
+    this.apiBasket.addToBasket(this.basketRequest).subscribe({
+      next: (res) => {
+        this.router.navigate(['/products']);
+      },
+      error: (err) => console.error(err)
+    })
+  }
 }
 

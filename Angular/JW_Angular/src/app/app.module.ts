@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { OrderPositionsComponent } from './order-positions/order-positions.component';
+import { ProductAddFormComponent } from './product-add-form/product-add-form.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { OrderPositionsComponent } from './order-positions/order-positions.compo
     BasketComponent,
     ProductDetailsComponent,
     OrderPositionsComponent,
+    ProductAddFormComponent,
   ],
   imports: [
     BrowserModule,

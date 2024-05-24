@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ProductDTOResponse } from './models/product.interface';
 import { PaginationDTO } from './models/pagination.interface';
+import { ProductDTORequest } from './models/product-request.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +37,13 @@ export class ProductsService {
 
   public changeActiveState(id: number): Observable<void>{
     return this.httpClient.put<void>(`https://localhost:7123/api/products/Activate/${id}`, null);
+  }
+
+  public update(id: number, product: ProductDTORequest): Observable<void>{
+    return this.httpClient.put<void>(`https://localhost:7123/api/products/${id}`, product);
+  }
+
+  public add(product: ProductDTORequest): Observable<void>{
+    return this.httpClient.post<void>('https://localhost:7123/api/products', product);
   }
 }

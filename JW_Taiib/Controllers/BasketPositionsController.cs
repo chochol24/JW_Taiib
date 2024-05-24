@@ -22,16 +22,16 @@ namespace JW_WebAPI.Controllers
             _basketPositionBLL.AddProductToBasket(basketPositionDTORequest);
         }
 
-        [HttpDelete("{productId}")]
-        public void DeleteProduct(int productId)
+        [HttpDelete("{basketPositionId}")]
+        public void DeleteProduct(int basketPositionId)
         {
-            _basketPositionBLL.RemoveProductFromBasket(productId);
+            _basketPositionBLL.RemoveProductFromBasket(basketPositionId);
         }
 
-        [HttpPut("Amount/{productId}")]
-        public void UpdateAmountOfProduct(int productId,[FromBody] int amount)
+        [HttpPut("Amount/{basketPositionId}")]
+        public void UpdateAmountOfProduct(int basketPositionId,[FromBody] int amount)
         {
-            _basketPositionBLL.UpdateAmountOfProduct(productId, amount);
+            _basketPositionBLL.UpdateAmountOfProduct(basketPositionId, amount);
         }
 
         [HttpGet("{userId}")]
