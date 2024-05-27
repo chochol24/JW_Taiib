@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, inject } from '@angular/core';
 import { BasketPositionDTOResponse } from '../models/basket-position.interface';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OrdersService } from '../orders.service';
@@ -6,6 +6,8 @@ import { BasketPositionsService } from '../basket-positions.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { Token } from '@angular/compiler';
+import { TokenService } from '../token.service';
 
 @Component({
   selector: 'app-basket',
@@ -14,6 +16,7 @@ import { MatSort } from '@angular/material/sort';
 })
 export class BasketComponent {
   public pos: BasketPositionDTOResponse[] = [];
+  
   public userId: number = 2;
   displayedColumns: string[] = ['id', 'userID', 'productID', 'amount', 'changeAmount', 'remove']
   dataSource!: MatTableDataSource<BasketPositionDTOResponse>;
@@ -21,7 +24,11 @@ export class BasketComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
+  private readonly apiToken = inject(TokenService);
+
   constructor(private route: ActivatedRoute, private basketPositionsService: BasketPositionsService, private router: Router ) {
+    this.userId = this.apiToken.decode();
+
     if (this.userId !== null) {
        this.basketPositionsService.getUserBasket(this.userId).subscribe({
         next: (pos) => {

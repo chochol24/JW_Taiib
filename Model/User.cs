@@ -12,7 +12,7 @@ namespace Model
 {
     public enum Type
     {
-        Admin, Casual
+        admin, casual
     }
     public class User 
     {

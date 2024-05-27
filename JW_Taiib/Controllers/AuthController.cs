@@ -1,6 +1,8 @@
 ﻿using BibliotekaModel;
+using DAL;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using Model;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -11,6 +13,14 @@ namespace JW_WebAPI.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
+
+        private readonly WebShopContext _context;
+
+        public AuthController(WebShopContext context)
+        {
+            _context = context;
+        }
+
         [HttpPost, Route("login")]
         public IActionResult Login([FromBody] LoginRequest user)
         {
@@ -18,14 +28,24 @@ namespace JW_WebAPI.Controllers
             {
                 return BadRequest("Invalid client request");
             }
-            if(user.Login == "login" && user.Password == "password")
+
+            var userInDb = _context.Users.FirstOrDefault(u => u.Login == user.Login && u.Password == user.Password);
+
+            if (userInDb != null)
             {
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name, user.Login),
+                    new Claim(ClaimTypes.Role, "admin"),
+                    new Claim(ClaimTypes.NameIdentifier, userInDb.ID.ToString())
+                };
+
                 var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("this is my custom Secret key for authentication"));
                 var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
                 var tokenOptions = new JwtSecurityToken(
-                    issuer: "http://localhost:5000",
-                    audience: "http://localhost:5000",
-                    claims: new List<Claim>(),
+                    issuer: "https://localhost:7123",
+                    audience: "https://localhost:7123",
+                    claims: claims,
                     expires: DateTime.Now.AddMinutes(5),
                     signingCredentials: signinCredentials
                 );

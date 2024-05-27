@@ -1,10 +1,11 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, inject } from '@angular/core';
 import { OrderDTOResponse } from '../models/order.interface';
 import { OrdersService } from '../orders.service';
 import { ActivatedRoute, Router} from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { TokenService } from '../token.service';
 
 
 
@@ -24,7 +25,10 @@ export class OrdersComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
+  private readonly apiToken = inject(TokenService);
+
   constructor(private ordersService: OrdersService, private route: ActivatedRoute, private router: Router) {
+    this.id = this.apiToken.decode();
     this.checkPage();
     this.getData();
     this.dataSource = new MatTableDataSource(this.data);

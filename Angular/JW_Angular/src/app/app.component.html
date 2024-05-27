@@ -1,7 +1,11 @@
-<ul>
-  <li><a routerLink="orders">Orders</a></li>
-  <li><a routerLink="orders/all">Orders/All</a></li>
-  <li><a routerLink="products">Products</a></li>
-  <li><a routerLink="basket">Basket</a></li>
-</ul>
+
+<div [ngStyle]="{'display':'flex', 'direction':'rows'}" *ngIf="isUserAuthenticated()">
+  <ul [ngStyle]="{'display':'flex', 'direction':'rows'}">
+    <li [ngStyle]="{'margin': '0 10px'}"><a routerLink="orders">Orders</a></li>
+    <li [ngStyle]="{'margin': '0 10px'}"><a routerLink="orders/all">Orders/All</a></li>
+    <li [ngStyle]="{'margin': '0 10px'}"><a routerLink="products">Products</a></li>
+    <li [ngStyle]="{'margin': '0 10px'}"><a routerLink="basket">Basket</a></li>
+    <li [ngStyle]="{'margin': '0 10px'}"><a routerLink="login" (click)="logOut()">Log out</a></li>
+  </ul>
+</div>
 <router-outlet />

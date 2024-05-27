@@ -28,8 +28,8 @@ namespace JW_Taiib
                     ValidateAudience = true,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
-                    ValidIssuer = "https://localhost:5000",
-                    ValidAudience = "http://localhost:5000",
+                    ValidIssuer = "https://localhost:7123",
+                    ValidAudience = "https://localhost:7123",
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("this is my custom Secret key for authentication"))
                 };
             });

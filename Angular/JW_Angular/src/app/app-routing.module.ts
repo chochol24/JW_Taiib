@@ -18,7 +18,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'products/:id', component: ProductDetailsComponent, canActivate: [authGuard]},
   {path: 'orders/:orderId', component: OrderPositionsComponent, canActivate: [authGuard]},
-  {path: 'orders/all/:orderId', component: OrderPositionsComponent, canActivate: [authGuard]}
+  {path: 'orders/all/:orderId', component: OrderPositionsComponent, canActivate: [authGuard]},
+  {path: '', redirectTo: 'login', pathMatch: 'full'}
   
 ];
 

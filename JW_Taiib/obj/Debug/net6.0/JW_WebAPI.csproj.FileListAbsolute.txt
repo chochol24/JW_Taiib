@@ -380,3 +380,4 @@ D:\JW_Taiib\JW_Taiib\JW_Taiib\obj\Debug\net6.0\JW_WebAPI.pdb
 D:\JW_Taiib\JW_Taiib\JW_Taiib\obj\Debug\net6.0\JW_WebAPI.genruntimeconfig.cache
 D:\JW_Taiib\JW_Taiib\JW_Taiib\obj\Debug\net6.0\ref\JW_WebAPI.dll
 D:\JW_Taiib\JW_Taiib\JW_Taiib\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Kuba\Desktop\Taiib_zajecia\JW_Taiib\JW_Taiib\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

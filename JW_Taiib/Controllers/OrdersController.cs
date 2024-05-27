@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace JW_WebAPI.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController, Authorize]
+    [ApiController, Authorize(Roles = "admin")]
     public class OrdersController : ControllerBase
     {
         readonly OrderBLL _orderBLL;

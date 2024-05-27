@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { ProductsComponent } from './products/products.component';
 import { OrdersComponent } from './orders/orders.component';
 import { BasketComponent } from './basket/basket.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { OrderPositionsComponent } from './order-positions/order-positions.component';
@@ -20,6 +20,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import { LoginComponent } from './login/login.component';
 import { JwtModule } from '@auth0/angular-jwt';
+import { AuthInterceptor } from './auth.interceptor';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -55,7 +56,12 @@ export function tokenGetter() {
     })
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
