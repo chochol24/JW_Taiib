@@ -1,0 +1,6 @@
+.position{
+    background: linear-gradient(to bottom right, rgb(122, 117, 216) 0%, rgba(5, 161, 252, 0.877) 35%, rgb(122, 117, 216) 100%);
+    font-weight: bold;
+    align-items: center;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

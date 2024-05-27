@@ -11,6 +11,14 @@ import { FormsModule } from '@angular/forms';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { OrderPositionsComponent } from './order-positions/order-positions.component';
 import { ProductAddFormComponent } from './product-add-form/product-add-form.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {MatTableModule} from '@angular/material/table';
+import {MatButtonModule} from '@angular/material/button';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import {MatInputModule} from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
@@ -26,9 +34,17 @@ import { ProductAddFormComponent } from './product-add-form/product-add-form.com
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatTableModule,
+    MatButtonModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatInputModule,
+    MatCardModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

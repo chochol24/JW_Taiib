@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { OrderDTOResponse } from '../models/order.interface';
 import { OrdersService } from '../orders.service';
 import { ActivatedRoute, Router} from '@angular/router';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 
 
@@ -15,10 +18,16 @@ export class OrdersComponent {
   public id: number = 1;
   public isAllOrdersPage: boolean = false;
   public choosedOrder?: OrderDTOResponse = undefined;
+  displayedColumns: string[] = ['date', 'id', 'userID'];
+  dataSource: MatTableDataSource<OrderDTOResponse>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private ordersService: OrdersService, private route: ActivatedRoute, private router: Router) {
     this.checkPage();
     this.getData();
+    this.dataSource = new MatTableDataSource(this.data);
   }
 
   private getData(): void {
@@ -26,6 +35,7 @@ export class OrdersComponent {
       this.ordersService.getUserOrders(this.id).subscribe({
         next: (res) => {
           this.data = res;
+          this.updateDataSource();
         },
         error: (err) => console.error(err),
         complete: () => console.log('complete')
@@ -35,11 +45,18 @@ export class OrdersComponent {
       this.ordersService.getAllOrders(this.id).subscribe({
         next: (res) => {
           this.data = res;
+          this.updateDataSource();
         },
         error: (err) => console.error(err),
         complete: () => console.log('complete')
       });
     }
+  }
+
+  private updateDataSource(): void {
+    this.dataSource.data = this.data;
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   private checkPage(): void {

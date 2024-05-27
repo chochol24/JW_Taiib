@@ -1,30 +1,36 @@
-<table border="1">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>UserID</th>
-            <th>ProductID</th>
-            <th>Amount</th>
-            <th>Change amount</th>
-            <th>Remove</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let p of pos">
-            <td >{{p.id}}</td>
-            <td>{{p.userID}}</td>
-            <td>{{p.productID}}</td>
-            <td>{{p.amount}}</td>
-            <td>
-                <input type="number" name="amount" id="amount" [(ngModel)]="p.amount" (change)="changeAmount(p.id, p.amount )">
-            </td>
-            <td>
-                <input type="button" name="remove" id="remove" value="Remove" (click)="remove(p.id)"/>
-            </td>
-        </tr>
-    </tbody>
-</table>
 
-<br/>
-<input type="button" name="order" id="order" value="Order" (click)="order(userId)"/>
 
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+            <td mat-cell *matCellDef="let basket"> {{basket.id}}</td>
+        </ng-container>
+        <ng-container matColumnDef="userID">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> User ID </th>
+            <td mat-cell *matCellDef="let basket"> {{basket.userID}}</td>
+        </ng-container>
+        <ng-container matColumnDef="productID">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Product ID </th>
+            <td mat-cell *matCellDef="let basket"> {{basket.productID}}</td>
+        </ng-container>
+        <ng-container matColumnDef="amount">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount </th>
+            <td mat-cell *matCellDef="let basket"> {{basket.amount}}</td>
+        </ng-container>
+        <ng-container matColumnDef="changeAmount">
+            <th mat-header-cell *matHeaderCellDef> Change Amount </th>
+            <td mat-cell *matCellDef="let basket"> <input matInput type="number" [(ngModel)]="basket.amount" (change)="changeAmount(basket.id, basket.amount)"></td>
+        </ng-container>
+        <ng-container matColumnDef="remove">
+            <th mat-header-cell *matHeaderCellDef> Remove </th>
+            <td mat-cell *matCellDef="let basket"><button mat-flat-button color="warn" (click)="remove(basket.id)">Remove</button> </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"> </tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5,10,15]" showFirstLastButtons></mat-paginator>
+</div>
+
+<button mat-flat-button color="primary" (click)="order(userId)">Order</button> 
