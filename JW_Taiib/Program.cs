@@ -1,6 +1,10 @@
 using BLL.Interfaces;
 using BLL_EF;
 using DAL;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+
 namespace JW_Taiib
 {
     public class Program
@@ -10,6 +14,33 @@ namespace JW_Taiib
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+
+            builder.Services.AddAuthentication(opt =>
+            {
+                opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = "https://localhost:5000",
+                    ValidAudience = "http://localhost:5000",
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("this is my custom Secret key for authentication"))
+                };
+            });
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("test", builder =>
+                {
+                    builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().Build();
+                });
+            });
 
             builder.Services.AddControllers();
             builder.Services.AddScoped<ProductBLL, ProductBLL_EF>();
@@ -29,11 +60,8 @@ namespace JW_Taiib
             }
 
             app.UseHttpsRedirection();
-            app.UseCors(optBuilder => optBuilder
-                                .AllowAnyHeader()
-                                .AllowAnyMethod()
-                                .AllowAnyOrigin()
-                                .Build());
+            app.UseCors("test");
+            app.UseAuthentication();
             app.UseAuthorization();
 
 

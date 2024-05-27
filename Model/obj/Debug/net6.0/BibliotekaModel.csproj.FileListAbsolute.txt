@@ -41,3 +41,17 @@ C:\Users\Kuba\Desktop\Taiib_zajecia\JW_Taiib\Model\obj\Debug\net6.0\BibliotekaMo
 C:\Users\Kuba\Desktop\Taiib_zajecia\JW_Taiib\Model\obj\Debug\net6.0\BibliotekaModel.genruntimeconfig.cache
 C:\Users\Kuba\Desktop\Taiib_zajecia\JW_Taiib\Model\obj\Debug\net6.0\ref\BibliotekaModel.dll
 D:\jw\JW_Taiib\Model\obj\Debug\net6.0\BibliotekaModel.sourcelink.json
+D:\JW_Taiib\JW_Taiib\Model\bin\Debug\net6.0\BibliotekaModel.deps.json
+D:\JW_Taiib\JW_Taiib\Model\bin\Debug\net6.0\BibliotekaModel.runtimeconfig.json
+D:\JW_Taiib\JW_Taiib\Model\bin\Debug\net6.0\BibliotekaModel.dll
+D:\JW_Taiib\JW_Taiib\Model\bin\Debug\net6.0\BibliotekaModel.pdb
+D:\JW_Taiib\JW_Taiib\Model\obj\Debug\net6.0\BibliotekaModel.csproj.AssemblyReference.cache
+D:\JW_Taiib\JW_Taiib\Model\obj\Debug\net6.0\BibliotekaModel.GeneratedMSBuildEditorConfig.editorconfig
+D:\JW_Taiib\JW_Taiib\Model\obj\Debug\net6.0\BibliotekaModel.AssemblyInfoInputs.cache
+D:\JW_Taiib\JW_Taiib\Model\obj\Debug\net6.0\BibliotekaModel.AssemblyInfo.cs
+D:\JW_Taiib\JW_Taiib\Model\obj\Debug\net6.0\BibliotekaModel.csproj.CoreCompileInputs.cache
+D:\JW_Taiib\JW_Taiib\Model\obj\Debug\net6.0\BibliotekaModel.dll
+D:\JW_Taiib\JW_Taiib\Model\obj\Debug\net6.0\refint\BibliotekaModel.dll
+D:\JW_Taiib\JW_Taiib\Model\obj\Debug\net6.0\BibliotekaModel.pdb
+D:\JW_Taiib\JW_Taiib\Model\obj\Debug\net6.0\BibliotekaModel.genruntimeconfig.cache
+D:\JW_Taiib\JW_Taiib\Model\obj\Debug\net6.0\ref\BibliotekaModel.dll
