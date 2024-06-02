@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace JW_WebAPI.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController, Authorize(Roles = "admin")]
+    [ApiController, Authorize]
     public class OrdersController : ControllerBase
     {
         readonly OrderBLL _orderBLL;
@@ -16,7 +16,7 @@ namespace JW_WebAPI.Controllers
             _orderBLL = orderBLL;
         }
 
-        [HttpGet]
+        [HttpGet, Authorize(Roles = "admin")]
         public IEnumerable<OrderDTOResponse> getAllOrders()
         {
             return _orderBLL.getAllOrders();

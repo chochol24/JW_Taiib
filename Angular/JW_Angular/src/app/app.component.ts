@@ -10,7 +10,7 @@ import { TokenService } from './token.service';
 })
 export class AppComponent {
   title = 'JW_Angular';
-  private readonly apiToken = inject(TokenService);
+  public readonly apiToken = inject(TokenService);
 
   constructor(private jwtHelper: JwtHelperService) {}
 

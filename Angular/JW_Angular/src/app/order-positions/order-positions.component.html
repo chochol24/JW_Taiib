@@ -1,8 +1,8 @@
-
 <div *ngFor="let p of pos" class="grid-container" style="border: 1px black solid; width: 20%;">
     <mat-card class="position">
         <mat-card-header>
-            <div mat-card-title>Order id: {{p.orderID}}, ProductID: {{p.productID}}</div>
+            <div mat-card-title>Order id: {{p.orderID}}</div>
+            <div mat-card-title>ProductID: {{p.productID}}</div>
         </mat-card-header>
         <mat-card-content>
             <p>Amount: {{p.amount}}</p>

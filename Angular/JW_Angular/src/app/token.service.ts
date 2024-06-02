@@ -14,13 +14,16 @@ export class TokenService {
     this.token = token;
   }
 
-  getToken(): string | null {
-    return this.token;
-  }
-
   decode(): number{
     this.decodedToken = jwtDecode(this.token);
     const userID = this.decodedToken["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"];
     return parseInt(userID);
+  }
+
+  isAdmin(): boolean{
+    this.decodedToken = jwtDecode(this.token);
+    const type = this.decodedToken["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
+    if(type=="admin") return true;
+    else return false;
   }
 }

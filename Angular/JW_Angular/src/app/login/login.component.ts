@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -21,7 +20,6 @@ export class LoginComponent {
         "Content-Type": "application/json"
       })
     }).subscribe(response => {
-      console.log("aha2");
       const token = (<any>response).token;
       localStorage.setItem("jwt", token);
       this.invalidLogin = false;

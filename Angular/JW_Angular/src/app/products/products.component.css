@@ -9,11 +9,10 @@
 }
 
 .grid-container {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust minmax as needed */
-    gap: 10px; /* Optional: add some spacing between items */
-    width: 100%; /* Ensure the container takes the full width */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    gap: 10px; 
+    width: 10%; 
 }
-
 .mat-my{
     background-color: red;
 }

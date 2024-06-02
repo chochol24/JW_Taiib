@@ -1,13 +1,20 @@
-<div *ngIf="product" class="grid-container" style="display:grid;">
-    <div class="grid-item" style="border: 1px solid black; background-color: darkkhaki; width: 10%;">
-        {{ product.name }}
-        {{product.price}}<br/>
-        <img [src]=product.image width="100" height="100"><br/>
-        {{product.isActive}}<br/>
-    </div>
-</div>
+
+<div class="grid-container">
+    <mat-card class="product-details">
+        <mat-card-header>
+            <div mat-card-title>Name: {{product.name}}</div>
+            <div mat-card-title>Price: {{product.price}}zł</div>
+        </mat-card-header>
+        <mat-card-content>
+            <img mat-card-image [src]=product.image width="100" height="100">
+            <p>IsActive: {{product.isActive}}</p>
+        </mat-card-content>
+    </mat-card>
+</div><br/>
+
+
 <form *ngIf="product" #productForm="ngForm" (ngSubmit)="onSubmit($event)">
-    <input 
+    <input
         type="submit" 
         name="delete" 
         id="delete" 

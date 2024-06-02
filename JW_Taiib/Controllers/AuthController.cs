@@ -35,8 +35,7 @@ namespace JW_WebAPI.Controllers
             {
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name, user.Login),
-                    new Claim(ClaimTypes.Role, "admin"),
+                    new Claim(ClaimTypes.Role, userInDb.Type.ToString()),
                     new Claim(ClaimTypes.NameIdentifier, userInDb.ID.ToString())
                 };
 

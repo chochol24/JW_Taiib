@@ -18,9 +18,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
-import { LoginComponent } from './login/login.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { AuthInterceptor } from './auth.interceptor';
+import { LoginComponent } from './login/login.component';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -35,7 +35,7 @@ export function tokenGetter() {
     ProductDetailsComponent,
     OrderPositionsComponent,
     ProductAddFormComponent,
-    LoginComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +51,7 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        allowedDomains: ["localhost:5000"]
+        allowedDomains: ["localhost:7123"]
       }
     })
   ],
